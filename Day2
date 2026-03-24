@@ -1,0 +1,7 @@
+---platform: hackerrank
+
+---> problem:Query all columns for all American cities
+SELECT * from city where countrycode='USA' AND  population>100000;
+
+---> problem:Query all columns for cities in Japan
+select * from city where countrycode='JPN';
