@@ -1,0 +1,7 @@
+---platform :hackerrank
+
+---problem: weather observation station1
+select city,state From station;
+
+---problem: weather observation station3
+select distinct city  from station WHERE MOD(ID, 2)=0;
