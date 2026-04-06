@@ -1,0 +1,10 @@
+---platform:hackerrank
+
+---problem:Sum function
+select sum(population)from CITY where district= 'California';
+
+---problem:Averages
+select avg(population) from CITY where district='California';
+
+---problem:Japan population
+select SUM(population) from CITY where COUNTRYCODE ='JPN';
