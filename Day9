@@ -1,0 +1,11 @@
+---platform:hackerrank
+
+---problem:weather obsrvation station 8
+select distinct city from station where lower(left(city,1)) in ('a','e','i','o','u')
+and lower(right(city,1)) in ('a','e','i','o','u');
+
+---problem:Average population
+select floor(avg(population)) from CITY;
+
+---problem:population density differences
+select max(population) -min(population) from city;
