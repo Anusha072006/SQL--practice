@@ -1,0 +1,36 @@
+#Task-1
+Write a query to create a table employee with the mentioned constraints on the columns :
+employee_id - INTEGER PRIMARY KEY,
+employee_Name - TEXT UNIQUE,
+department - TEXT NOT NULL CHECK (department IN ('Sales', 'Finance', 'Operations'))
+----------------------answer-----------------------------
+drop table if exists employee;
+create table employee(
+employee_id int primary key,
+employee_name varchar(40),
+department varchar(20)
+);
+insert  into employee values(1,"anusha","Sales"),
+(2,"bhavya","Finance"),
+(3,"keerthi","Operations");
+select * from employee;
+
+#Task-2
+Write a query which does the following
+Delete all rows in the employee table whose Department is 'Hr'.
+Output all the entires of the table
+Original table has the following rows
+---------------answer---------------------------
+DROP TABLE IF EXISTS employee;
+create table employee(
+employee_id int primary key,
+employee_name varchar(20),
+department varchar(30)
+);
+insert into employee values(1,"Kayla Thompson","Sales" ),
+(2,"Ethan Chen", "Operations"),
+(3,"Julia Lee","Hr"),
+(4, "Marcus Garcia"," Product");
+delete from employee
+where department='Hr';
+select * from employee;
