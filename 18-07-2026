@@ -1,0 +1,26 @@
+#task-2: create table from employees
+create table employees(
+   emp_id int primary key,
+   name varchar(40),
+   age int,
+   department varchar(30),
+   salary decimal(10,2)
+   );
+   select * from employees;
+   select name from employees;
+   select name,salary from employees;
+   select * from employees where age>25;
+   select * from employees where salary>30000;
+   select * from employees where department="IT";
+   select * from employees where age between 22 and 30;
+   select * from employees where salary<50000;
+   select name from employees order by name ASC; 
+   select name from employees order by name DESC;
+   select * from employees where age>25;
+   select * from employees where age<30;
+   select * from employees where age=22;
+   select * from employees where salary>40000;
+   select * from employees where salary<30000;
+   select * from employees where department='Sales';
+   select * from employees where age>25 and salary>40000;
+   
