@@ -1,0 +1,42 @@
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+#today topics CRUD Operation
+----------------------------------------------------------------------------------------
+1.insert(create)
+---------------------------------------------------------------------------------------
+#Insert one employee record into the Employees table.
+insert into employees (emp_id,name,age,department,salary) values
+(1,'anusha',21,'CSE',15000);
+
+#Insert three employee records at once.
+insert into employees (emp_id,name,age,department,salary) values
+(1,'anusha',21,'CSE',15000),
+(2,'bhavya',22,'ECE',20000),
+(3,'keerthi',23,'IT',40000);
+
+#Insert an employee with the department IT.
+(3,'keerthi',23,'IT',40000),
+
+-----------------------------Read (SELECT)--------------------------------------
+#Display all employee records.
+select* from employees;
+
+# Display only the Name and Salary columns.
+select name,salary from employees;
+
+# Display employees who work in the IT department.
+select* from employees where department='IT';
+
+# Display employees whose salary is greater than 40,000.
+select * from employees where salary>40000;
+
+---------------------------------------Update (UPDATE)--------------------------------------
+
+# Update the salary of an employee using Emp_ID.
+update employees set salary=50000 where emp_id=1; 
+
+# Change the department of an employee to HR.
+update employees set department ='HR' where emp_id=1;
+
+# Increase the salary of all employees in the IT department by 5,000.
+update employees set salary=50000 where emp_id=1;
