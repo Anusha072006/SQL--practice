@@ -1,0 +1,11 @@
+# TODAY TASK
+------------------------------------------------------------------------------------------
+1.QUESTION:The WHERE clause helps us obtain information which meets specific conditions.
+In the previous problem, we saw the 'Origins' of flights.
+Let us try and identify flights that originate out of 'Mumbai' using the following syntax.
+
+select * from flights where origin ='Mumbai';
+--------------------------------------------------------------------------------------------
+2.QUESTION: Write the above query in the IDE to get the unique origin locations.
+Code it out in the IDE.
+select distinct  origin  from flights;
