@@ -1,0 +1,41 @@
+1.QUESTION: Write a query to retrieve the department_name and location of departments located in a city that starts with 'S'.
+Table name: departments
+select department_name,location from departments where location LIKE 'S%';
+------------------------------------------------------------------------------------------------------------------------------
+2.QUESTION: Write a query to select all the distinct companies (company_name) in the Works table.
+Table name: Works
+select distinct company_name from works ;
+--------------------------------------------------------------------------------------------------------------------------------
+3.QUESTION: Write a query to find the total count of books whose genre is Fiction.
+Note: Output column name should be fiction_count.
+select count(*) as fiction_count from books where genre='Fiction';
+---------------------------------------------------------------------------------------------------------------------------------
+4.QUESTION: Write a query to select only the movie names where the ratings are greater than 7 but less than 9.
+Table: Cinema
+select movie_name from cinema where rating>7 and rating <9;
+-----------------------------------------------------------------------------------------------------------------------------------
+5.QUESTION: Write a query to retrieve book_id, title, author and published_year of the books which have NULL rating for their books.
+Table name: Library
+select book_id,title,author,published_year from Library where rating is NULL;
+--------------------------------------------------------------------------------------------------------------------------------------
+6.QUESTION: Create a query to retrieve the employee_name, company, and salary for employees in the full-time category, ordered by salary in descending order
+Table name: Employees
+select employee_name,company,salary from employees where category='Full-Time' order by salary DESC; 
+--------------------------------------------------------------------------------------------------------------------------------------------
+7.Question: Write a query to group the employees by their department and display the total number of employees (as total_employees) in each department.
+Table name: Employees
+select department, count(*) as total_employees from employees group by department;
+----------------------------------------------------------------------------------------------------------------------------------------------
+8.QUESTION: Write a query to retrieve the author_id, author_name, and publication_name for authors whose articles got zero views. The result should be sorted by author_id in ascending order.
+Return the result table sorted by id in ascending order.
+select  distinct author_id,author_name,publication_name from views where view_count=0 order by author_id  ASC; 
+------------------------------------------------------------------------------------------------------------------------------------------------
+9.QUESTION: Write a query to find the names of the top 3 distinct players by highest score who have won matches, including their scores.
+select distinct  player_name,score from players 
+join Matches on player_name=winner order by score DESC Limit 3;
+--------------------------------------------------------------------------------------------------------------------------------------------------
+10.QUESTION: Write a query to retrieve the details of the last five matches played, including the match ID, the names of the players who participated, the name of the winning player, match date, and the final score of the winner.
+There are two tables named Players and Matches.
+select m.match_id,m.player_1,m.player_2,m.winner,m.match_date,p.score from Matches m 
+join players p on m.winner=p.player_name  order by m.match_date desc
+Limit 5;
