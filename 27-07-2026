@@ -1,0 +1,38 @@
+1.QUESTION: Display all employee details ordered by salary (lowest to highest).
+select *  from employees order by salary ASC;
+-------------------------------------------------------------------------------------
+2.QUESTION:Display all employees ordered by salary (highest to lowest).
+select * from employees order by salary DESC;
+--------------------------------------------------------------------------------------
+3.QUESTION: Display employee names ordered alphabetically (A–Z).
+select * from employee order by name  ASC;
+--------------------------------------------------------------------------------------
+4.QUESTION: Display employee names ordered reverse alphabetically (Z–A).
+select * from employee order by name  DESC;
+--------------------------------------------------------------------------------------
+5.QUESTION: Display all employees ordered by age (youngest to oldest).
+select * from employees order by age ASC;
+---------------------------------------------------------------------------------------
+6.QUESTION: Display all employees ordered by department alphabetically.
+select * from employees order by department ASC;
+---------------------------------------------------------------------------------------
+7.QUESTION: Display employees ordered by city.
+select * from employees order by city;
+------------------------------------------------------------------------------------------
+8.QUESTION: Display the first 5 employees.
+select *from employees  limit 5;
+----------------------------------------------------------------------------------------
+9.QUESTION: Display the first 3 highest-paid employees.
+select * from employees order by salary desc 
+ LIMIT 3 ;
+ ------------------------------------------------------------------------------------------
+10.QUESTION: Display the top 2 youngest employees.
+select * from employees  order by  salary desc
+limit 2;
+---------------------------------------------------------------------------------------
+11.QUESTION: Display the top 4 oldest employees.
+select * from employees order by age desc limit 4;
+----------------------------------------------------------------------------------------
+12. QUESTION: Display the first 6 employee names only.
+select * from employees  limit 6;
+----------------------------------------------------------------------------------------
