@@ -1,0 +1,11 @@
+1.QUESTION: Write a query to output the table 'Users'. Limit your results to 5 rows.
+select *  from users Limit 5;
+------------------------------------------------------------------------------------------------------------------------------
+2.QUESTION: Write a query to find average rating among all users. Rename that column as average_rating
+select AVG(rating) as  average_rating from users;
+---------------------------------------------------------------------------------------------------------------------------------
+3.QUESTION: Write a query to find out the count of users having age between 18 and 24 (inclusive). Rename that column as user_count
+select count(*)as user_count from users where age between 18 and 24;
+-----------------------------------------------------------------------------------------------------------------------------------
+4.Question: Output the user_name of top 2 users with maximum ratings
+select user_name,rating  from users order by rating  desc   limit 2;
