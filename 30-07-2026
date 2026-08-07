@@ -1,0 +1,29 @@
+1.QUESTION: Find the total number of employees.
+select count(employees_id) as employees_count from employees;
+--------------------------------------------------------------------------------------------------------------------
+2.QUESTION: Find the highest salary
+select max(salary) as highest_salary from employees;
+-------------------------------------------------------------------------------------------------------------------------------
+3.QUESTION: Find the lowest salary
+select min(salary) as lowest_salary from employees;
+-----------------------------------------------------------------------------------------------------------------------------
+5.QUSETION Find the average salary
+select avg(salary) as average_salary from employees;
+------------------------------------------------------------------------------------------------------------------------------
+6.QUESTION: Find the total salary paid to all employees
+select sum(salary) as total_salary from employees;
+---------------------------------------------------------------------------------------------------------------------------------------------
+7.QUESTION: Find the total number of departments
+select count(distinct department) as total_department from employees;
+---------------------------------------------------------------------------------------------------------------------------------------------
+8.QUESTION: Find the number of unique job IDS
+select count(distinct job_id) as job_id from employees;
+--------------------------------------------------------------------------------------------------------------------------------------------
+9.QUESTION: Find the salary difference between the highest and lowest paid employees
+select max(salary)-min(salary) as salary_diff from employees;
+-------------------------------------------------------------------------------------------------------------------------------------------------
+10.QUESTION: Find the average salary of employees earning more than 10000.
+select avg(salary) as avg_salary from employees where salary>10000;
+--------------------------------------------------------------------------------------------------------------------------------------------------
+11.QUESTION: Find the total salary of employees working in department 90
+select sum(salary) as total_salary from employees where department=90;
