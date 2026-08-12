@@ -1,0 +1,14 @@
+1.QUESTION: Display departments having more than 5 employee
+select department_id,count(employees_id)as employees_count from employees group by department_id having count(emp_id)>5;
+---------------------------------------------------------------------------------------------------------------------------------
+2.QUESTION: Display job roles whose total salary is greater than 30000.
+select job_id,sum(salary)as avg_salary from employees group by job_id having total_salary >30000;
+-----------------------------------------------------------------------------------------------------------------------------------
+3.QUESTION: Display departments having more than 2 employees and an average salary greater than 8000
+select dep_id,count(emp_id) as emp_count,avg_salary from employee group by dep_id having emp_count >2 and avg_salary> 8000
+---------------------------------------------------------------------------------------------------------------------------------------
+4.QUESTION:  Display job roles having more than 2 employees and a total salary greater than 25000
+select  job_id,count(emp_id)as emp_count,sum(salary) as total_salary from employees group by job_id having emp_count > 2 and total_salary>25000
+------------------------------------------------------------------------------------------------------------------------------------------------
+5.QUESTION: Display departments whose average salary is greater than 10000
+select dep_id,avg(salary) as avg_salary from employee group by dep_id having avg_salary>10000
