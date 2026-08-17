@@ -1,0 +1,29 @@
+1.QUESTION: Create a table from student and courses table
+create table student(
+rollNo int primary keys, auto_increment,
+studentName varchar(200)
+);
+create table courses
+courseId int,
+courseName varchar(200),
+rollno int,
+foriegn keys(rollno)reference courses(rollno)
+);
+insert into student(rollNo,studentName)
+(1,'anusha'),
+(2,'gopi'),
+(3,'tharkesh'),
+(4,'karthik');
+select * from student;
+insert into courses(courseId,courseName,rollno) values
+(1,'DBMS',1),
+(2,'OS,2),
+(3,'computer networks',3),
+(4,'SQL',4);
+select * from courses;
+select * from student inner join courses on student.rollno=courses.rollno;
+select * from student left join courses on student.rollno=courses.rollno;
+select * from student right join courses on student.rollno=courses.rollno;
+select * from student natural join courses;
+select * from student cross join courses order by student.studentName;
+
