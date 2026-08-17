@@ -26,4 +26,22 @@ select * from student left join courses on student.rollno=courses.rollno;
 select * from student right join courses on student.rollno=courses.rollno;
 select * from student natural join courses;
 select * from student cross join courses order by student.studentName;
-
+----------------------------------------------------------------------------------------------------
+2.QUESTION: Write a query to do the following:
+FULL OUTER JOIN the student and course tables using 'Course_id' to match the tables. Output the joined table.
+select * from student
+full join course on student.course_id=course.course_id;
+------------------------------------------------------------------------------------------------------------------
+3.QUESTION: Write the queries to do the following:
+JOIN the tables 'student' and 'course' using 'Course_id' to match both the tables and output the joined table.
+RIGHT JOIN the tables 'student' and 'course' using 'Course_id' to match both the tables and output the joined table.
+select * from student
+ join course on student.course_id=course.course_id;
+select * from student
+right join course on student.course_id= course.course_id;
+----------------------------------------------------------------------------------------------------------------------------
+4.QUESTION: Write a query to do the following
+Cross join the table 'student' and 'course' and check out all possible courses a student can opt.
+Output only two columns, the name of the student as 'St_Name' and courses as 'Course_Name'.
+select St_name,Course_Name from student cross join course;
+------------------------------------------------------------------------------------------------------------------------------
