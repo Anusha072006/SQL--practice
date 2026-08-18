@@ -1,0 +1,13 @@
+1.QUESTION: Table 'fruit' has the list of all fruits available in the market(few of them could be out of stock).
+Table 'inventory' has the updated list of items in the supermarket.
+select f_name from fruit
+intersect
+select inv_name from inventory;
+------------------------------------------------------------------------------------------------------------------------------------
+2.QUESTION: Consider the same supermarket database we used in the previous problem.
+Write a query to output the name of the fruits (f_name) from the table 'fruit' which are not present in the table inventory.
+f_name column has the name of the fruits and inv_name has the name of the items in inventory.
+select f_name from fruit
+except
+select inv_name from inventory;
+----------------------------------------------------------------------------------------------------------------------------------
