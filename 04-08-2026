@@ -1,0 +1,29 @@
+1.QUESTION: Display all the information of the EMP table.
+select * from emp;
+-----------------------------------------------------------------------------
+2.QUESTION: Display unique jobs from EMP table
+select DISTINCT jobs from emp;
+-------------------------------------------------------------------------------
+3.QUESTION: Display the deatils of all Managers
+select * from emp where department=managers
+----------------------------------------------------------------------------------------
+4.QUESTION: List the emps who joined before 1981
+select * from emp where hiredate<'1981-01-01;
+----------------------------------------------------------------------------------------
+5.QUESTION:Display the Empno,Ename,Job,Hiredate,and experience of all Managers
+select * from emp where job=manager;
+--------------------------------------------------------------------------------------------
+6.QUESTION: List the Empno, Ename, Sal,Exp of all emps working for Mgr 7639
+select Empno,Ename,Sal,Exp from emp where Mgr=7639;
+------------------------------------------------------------------------------------------
+7.Display all the details of the emps whose Comm is more than their Sal
+select * from emp where comm>sal;
+--------------------------------------------------------------------------------------------
+8.QUESTION: List the emps along with their Exp and whose daily sal is more than RS.100
+select exp from emp where sal/30 >100;
+----------------------------------------------------------------------------------------------
+9.QUESTION: List the emps who are working for the deptno 10 or 20
+select * from emp where deptno=10 and OR  deptno=20;
+----------------------------------------------------------------------------------------------
+10.QUESTION: Lists the emps who are working under any manager
+select * from emp where manager is not null;
