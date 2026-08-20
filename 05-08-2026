@@ -1,0 +1,33 @@
+1.QUESTION: List all the clerks of deptno 20
+select * from emp wherejob='clerks' and  deptno=20;
+-------------------------------------------------------------------------------------
+2.QUESTION: Display the details of smith
+select * from emp where ename=smith;
+-------------------------------------------------------------------------------------
+3.QUESTION: Display the empno,ename,deptno from emp table
+select empno,ename,deptno from emp;
+---------------------------------------------------------------------------------------------
+4.QUESTION:Write a query to display the empno and the deptno of all emps
+select empno,deptno from emp;
+-----------------------------------------------------------------------------------------------
+5.QUESTION: Display the unique depts of emps
+select distinct(deptno) from emp;
+-------------------------------------------------------------------------------------------------
+6.QUESTION: List the emps whose salary is more than 3000 after giving 20% increment
+select * from emp where salary1.20 >3000;
+--------------------------------------------------------------------------------------------------
+7.QUESTION: List the ename and sal increased by 15% and expressed as no.of dollars
+select ename,sal* 1.5 as dollars from emp;
+---------------------------------------------------------------------------------------------------
+8.QUESTION: Produce the output of EMP table emp_and job for ename and job
+select ename,job from emp;
+-----------------------------------------------------------------------------------------------------------
+9.QUESTION: Display the empno, ename,salary of all managers
+select empno,ename,salary from emp where job='manager';
+------------------------------------------------------------------------------------------------------------
+10.QUESTION: List all clerks
+select * from emp where job='clerks';
+------------------------------------------------------------------------------------------------------------
+11.QUESTION: Check whether all the emps numbers are indeed unique.
+select empno count(*)from emp  group by empno having count(*)>1;
+---------------------------------------------------------------------------------------------------------------
