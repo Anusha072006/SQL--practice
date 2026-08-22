@@ -1,0 +1,44 @@
+1.QUESTION: List the empno,sal and comm of emps.
+select empno,sal,comm from emp;
+-------------------------------------------------------------------------------------------------------
+2.QUESTION: Display the unique dept with jobs.
+select distinct from emp where dept='jobs';
+--------------------------------------------------------------------------------------------------------
+3.QUESTION: Display the details of Blake.
+select * from employee where ename='Blake' ;
+----------------------------------------------------------------------------------------------------------
+4.Question: List all the emps joined on 1 may 1981
+select * from emps where hire_date='1981-05-01;
+----------------------------------------------------------------------------------------------------------
+5.QUESTION: List the emps whose salaries are less than 3500
+select * from emp where sal<3500;
+----------------------------------------------------------------------------------------------------------
+6.QUESTION:List the emps empno,ename,sal of all emp joined before 1 apr 1981
+select empno,ename,sal* from emp where hire_date='1981-04-01';
+-----------------------------------------------------------------------------------------------------------
+7.QUESTION: List the emps whose exp is more than 10 yeras
+select * from emp  where DATEDIFF(CURDATE(), hiredate) > 3650;
+-----------------------------------------------------------------------------------------------------------
+8.QUESTION: List the emps who are working as managers.
+select * from emp where job='Manager';
+--------------------------------------------------------------------------------------------------------------
+9.QUESTION:List the emps who are working as clerk and exp is more that 8 years
+select * from emp where job='clerk'and DATEDIFF(CURDATE(), hiredate) > 2920;
+-----------------------------------------------------------------------------------------------------------------
+10.QUESTION: List all the salesman who are receiving comm.
+select *from emp where job='salesman' and comm is not null;
+------------------------------------------------------------------------------------------------------------------
+11.QUESTION: List all the salesman of the dept 30 whose comm.is more than their salary
+select * from emp where job='salesman' and dept=30 and comm>salary;
+------------------------------------------------------------------------------------------------------------------
+12.QUESTION:Generate  all the 3 digit numbers
+WITH RECURSIVE numbers AS
+(
+SELECT 100 AS num
+UNION ALL
+SELECT num + 1
+    FROM numbers
+    WHERE num < 999
+)
+SELECT num FROM numbers;
+--------------------------------------------------------------------------------------------------------------------
