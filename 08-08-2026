@@ -1,0 +1,44 @@
+1.QUESTION: Display all employee details
+select * from employee;
+-------------------------------------------------------------------------------------------------
+2.QUESTION: Display employees whose salary is greater than 50,000
+select * from employees where salary >50000
+--------------------------------------------------------------------------------------------------
+3.QUESTION: Display employees from Bangalore.
+select * from employee where city='Bangalore
+---------------------------------------------------------------------------------------------------
+4.QUESTION: Display employees order by salary from lowest to higest.
+select * from employees order by salary DESC
+-----------------------------------------------------------------------------------------------------
+5.QUESTION: Display the top 5 highest-paid employees.
+select * from employee order by salary DESC limit 5;
+-----------------------------------------------------------------------------------------------------
+6.QUESTION: Display the 3 lowest-paid employees
+select * from employee order by Salary ASC limit 3;
+-----------------------------------------------------------------------------------------------------
+7.QUESTION: Display employees order by name and (A-Z)
+select * from employees order by name  ASC;
+----------------------------------------------------------------------------------------------------
+8.QUESTION:Display employee order by age from oldest to youngest
+select* from employee order by age DESC;
+----------------------------------------------------------------------------------------------------
+9.QUESTION:Display the first 5 employees after skipping the first 3 employees
+select * from employees limit 5 offset 3;
+-------------------------------------------------------------------------------------------------------
+10.QUESTION: Display employees whose salary is between 30,000 and 60,000
+select * from employees where salary  between 30000 and 60000;
+-------------------------------------------------------------------------------------------------------
+11.QUESTION:Display employees who work in the IT department.
+select * from employees where department='IT';
+--------------------------------------------------------------------------------------------------------
+12.QUESTION: Display the employee with the lowest salary.
+select * from employee order by salary asc limit 1;
+----------------------------------------------------------------------------------------------------------
+13.QUESTION:Display the top 3 youngest employees
+select * from employees order by age  ASC limit 3;
+--------------------------------------------------------------------------------------------------------------
+14.QUESTION: Display employees whose names start with the letter A.
+select * from employee where name LIKE 'A%';
+-----------------------------------------------------------------------------------------------------------------
+15.QUESTION: Display the employee with the highest salary
+select * from employee order by salary DESC limit 1; 
