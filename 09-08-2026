@@ -1,0 +1,24 @@
+1.QUESTION: List all the details of dept 10
+select * from employee where dept=10;
+---------------------------------------------------------------------------------------------------------------------------------------
+2.QUESTION: List all the details of Miller
+select * from employee where ename ='Miller';
+-----------------------------------------------------------------------------------------------------------------------------------------
+3.QUESTION:List all the salesman
+select * from employee where job='salesman';
+--------------------------------------------------------------------------------------------------------------------------------------------
+4.QUESTION: List all the emps who joined before 1984.
+select * from employees where hire_date <1984-01-01;
+-----------------------------------------------------------------------------------------------------------------------------------------------
+5.Question: List all the emps whose sal>2500
+select * from emps where sal=2500;
+----------------------------------------------------------------------------------------------------------------------------------------------
+6.QUESTION: List all the emps who are working since 1st April 1982
+select * from employee where hire_date='1982-04-01';
+------------------------------------------------------------------------------------------------------------------------------------------
+7.QUESTION:List the empno,ename,sal,daily sal of all emps
+select empno,ename,sal,sal/30 as daily_sal where employee;
+--------------------------------------------------------------------------------------------------------------------------------------------
+8.QUESTION: List the empno,ename,sal,experience of all analysts
+select empno,ename,sal,exp  from employee where job='analysts';
+--------------------------------------------------------------------------------------------------------------------------------------------
