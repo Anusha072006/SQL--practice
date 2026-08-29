@@ -1,0 +1,91 @@
+create table employees(
+emp_id int,
+name varchar(50),
+department varchar(50),
+salary decimal(10,2),
+age int
+);
+insert into employees values
+(101,'anu','IT',50000,22),
+(102,'Ravi','HR',40000,25),
+(103,'Sita','IT',60000,24),
+(104,'Arun','Sales',35000,28),
+(105,'Priya','HR',45000,23),
+(106,'Kiran','IT',55000,26);
+
+
+#TOPIC: AS,LIKE,IN,BETWEEN
+1.QUESTION: Display employee name as Employee_Name.
+select name  as employee_name from employees;
+----------------------------------------------------------------------------
+2.QUESTION: Display salary as Employee_Salary.
+select salary as employee_salary from employees;
+----------------------------------------------------------------------------
+3.QUESTION: Display department as Dept.
+select department as Dept from employees;
+----------------------------------------------------------------------------
+4.QUESTION: Display name, age, and salary with suitable aliases.
+select name as employee_name,age as employee_age,salary as employee_salary  from employees;
+-----------------------------------------------------------------------------
+5.QUESTION: Display annual salary (salary * 12) as Annual_Salary.
+select salary*12 as annual_salary from employees;
+----------------------------------------------------------------------------------
+6.QUESTION:Find employees whose name starts with A.
+select * from employees  where  name LIKE'A%';
+---------------------------------------------------------------------------------
+7.QUESTION: Find employees whose name ends with a.
+select * from employees where name LIKE'%a';
+-------------------------------------------------------------------------------------
+8.QUESTION: Find employees whose name contains a.
+select * from employees where name LIKE '%a%';
+---------------------------------------------------------------------------------------
+9.QUESTION: Find employees whose name contains an.
+select * from employees where name LIKE '%an%';
+-----------------------------------------------------------------------------------------
+10.QUESTION: Find employees whose name has exactly 5 characters.
+select * from employees where name LIKE'_____';
+-------------------------------------------------------------------------------------------
+11.QUESTION:Find employees working in IT or HR using IN.
+select * from employees where department IN ('IT','HR');
+-------------------------------------------------------------------------------------------
+12.QUESTION: Find employees working in IT, HR, or Sales.
+select * from employees where department IN('IT','HR','Sales');
+------------------------------------------------------------------------------------------
+13.QUESTION: Find employees from Bangalore or Chennai.
+select * from employees where city IN('Bangalore','Chennai');
+-----------------------------------------------------------------------------------------------------
+14.QUESTION: Find employees whose age is 22, 24, or 26 using IN.
+select* from employees where age IN(22,24,26);
+-----------------------------------------------------------------------------------------------------------------
+15.QUESTION: Find employees whose salary is between 40,000 and 60,000.
+select * from employees where salary BETWEEN 40000 and 60000;
+-------------------------------------------------------------------------------------------------
+16.QUESTION: Find employees whose age is between 23 and 27.
+select * from employees where age BETWEEN 23 and 27;
+----------------------------------------------------------------------------------------
+17.QUESTION: Find employees whose salary is between 30,000 and 50,000.
+select * from employees where salary BETWEEN 30000 and 50000;
+-----------------------------------------------------------------------------------
+18.QUESTION: Find employees whose age is between 22 and 25.
+select * from employees where age BETWEEN 22 and 25;
+---------------------------------------------------------------------------------------------------
+19.QUESTION: Find employees whose name starts with A and salary is greater than 40,000.
+select * from employees where name LIKE'A%' and salary >40000;
+-----------------------------------------------------------------------------------------------------------------
+20.QUESTION: Find employees working in IT, HR, or Sales whose salary is between 40,000 and 70,000.
+select * from employees where department IN('IT','HR','Sales') and salary between 40000 and 70000;
+-------------------------------------------------------------------------------------------------------------------
+21.QUESTION: Find employees whose name contains a and age is between 23 and 28.
+select * from employees where name LIKE '%a%'and age  between 23 and 28;
+--------------------------------------------------------------------------------------------------------------
+22.QUESTION: Display employee name and annual salary for employees working in IT or HR.
+select name,salary * 12 from employees where department IN('IT','HR'); 
+--------------------------------------------------------------------------------------------------------------
+23.QUESTION: Find employees whose name starts with A or S.
+select* from employees where name LIKE 'A%' OR name LIKE 'S%';
+------------------------------------------------------------------------------------------------------------
+24.QUESTION: Find employees whose salary is between 40,000 and 60,000 and department is IT or HR.
+select * from employees where salary between 40000 and 60000 and department IN('IT','HR');
+-------------------------------------------------------------------------------------------------------------------
+25.QUESTION: Display employee name, department, and annual salary for employees whose name contains a.
+select name,department,salary* 12 from employees where name LIKE '%a%';
