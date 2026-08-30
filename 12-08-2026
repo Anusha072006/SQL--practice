@@ -1,0 +1,59 @@
+create table employees(
+employee_id int,
+name varchar(50),
+department_id int,
+salary decimal(10,2)
+);
+drop table employees;
+CREATE TABLE departments (
+    department_id INT,
+    department_name VARCHAR(20)
+);
+ insert into employees values
+ (101,'Anu',1,50000),
+ (102,'Ravi',2,40000),
+ (103,'Sita',1,60000),
+ (104,'Arun',3,35000),
+ (105,'Priya',2,45000);
+ 
+insert into departments values
+ (1,'IT'),
+ (2,'HR'),
+ (3,'Sales'),
+ (4,'Finance');
+1.QUESTION: Display the employee name and department name.
+select e.name,d.department_name from employees e join departments d on e.department_id=d.department_id;
+-----------------------------------------------------------------------------------------------------------------------
+2.QUESTION: Display the employee ID, employee name, and department name.
+select e.name,e.salary,d.department_name  from employees e inner join departments d on e.department_id=d.department_id;
+---------------------------------------------------------------------------------------------------------------------------
+3.QUESTION: Display the employee name and salary along with the department name.
+select e.* from employees e inner join departments d on e.department_id=d.department_id where salary;
+------------------------------------------------------------------------------------------------------------------------------------
+4.QUESTION: Display all employees who work in the IT department.
+select e.* from employees e inner join departments d on e.department_id=d.department_id where d.department_name='IT';
+-----------------------------------------------------------------------------------------------------------------------------------
+5.QUESTION: Display all employees who work in the HR department.
+select e.* from employees e
+ inner join departments d
+ on e.department_id=d.department_id where d.department_name='HR';
+ ---------------------------------------------------------------------------------------------------------------------------------------------
+6.Display employees whose salary is greater than 40,000, along with their department name.
+select e.name,e.salary,d.department_name  from employees e inner join departments  d  
+on e.department_id =d.department_id where salary>40000;
+----------------------------------------------------------------------------------------------------------------------------------
+7. Display employees who work in IT or Sales.
+select e.*  from employees e inner join departments d on e.department_id=d.department_id where d.department_name IN ('IT','Sales'); 
+---------------------------------------------------------------------------------------------------------------------------------------------
+8. Display employees whose salary is less than 50,000, along with their department name.
+select e.name,e.salary,d.department_name from employees e inner join departments d on e.department_id=d.department_id where salary<50000;
+-----------------------------------------------------------------------------------------------------------------------------------------------
+9. Display employee name, department name, and salary, ordered by salary from highest to lowest.
+select e.name,d.department_name,e.salary from employees e inner join  departments d on e.department_id=d.department_id  order by salary DESC;
+---------------------------------------------------------------------------------------------------------------------------------------------------
+10. Display employees whose salary is between 40,000 and 55,000, along with their department name.
+select e.name,e.salary,d.department_name from employees e 
+inner join departments d 
+on e.department_id=d.department_id where salary between 40000 and 55000;
+
+
