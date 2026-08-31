@@ -1,0 +1,35 @@
+1.QUESTION:Find the total salary for each department.
+select d.department_name,sum(e.salary) as total_salary from employees e inner join departments d  on e.department_id =d.department_id group by d.department_name;
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2.QUESTION:Find the average salary for each department.
+select d.department_name,avg(e.salary) as avg_salary from employees e inner join departments d  on e.department_id=d.department_id group by d.department_name;
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3.QUESTION:Find the highest salary in each department.
+select d.department_name,max(e.salary) as max_salary from employees e inner join departments d  on e.department_id=d.department_id group by d.department_name ;
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4.QUESTION:Find the lowest salary in each department.
+select d.department_name,min(e.salary) as min_salary from employees e inner join departments d  on e.department_id=d.department_id group by d.department_name ;
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5.QUESTION:Find the number of employees in each department
+select d.department_name,count(e.salary) as count_salary from employees e inner join departments d on e.department_id=d.department_id group by d.department_name ;
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+6.QUESTION: Display employee name, department name, and salary ordered by salary from highest to lowest.
+select e.name,d.department_name,e.salary from employees einner join departments d on e.department_id=d.department_id order by salary desc;
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+7. Display employee name and department name ordered by employee name alphabetically.
+select e.name,d.department_name from employees e inner join departments d on e.department_id=d.department_id order by e.name asc;
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+8. Display the top 3 highest-paid employees with their department names.
+select e.* from employees e inner join departments d  on e.department_id=d.department_id order by e.salary desc  limit 3;
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+9.QUESTION: Display departments whose total salary is greater than ₹80,000.
+select d.department_name,sum(e.salary) as total_salary from employees e inner join departments d  on e.department_id=d.department_id group by d.department_name having sum(e.salary)>80000;
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+10.QUESTION: Display departments whose average salary is greater than ₹40,000.
+select d.department_name ,avg(e.salary) as avg_salary from employees e inner join departments d  on e.department_id=d.department_id group by d.department_name having avg(e.salary) >40000;
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+11.QUESTION: Display departments having more than 1 employee.
+select d.department_name,count(e.employee_id) as total_employees  from employees e inner join departments d  on e.department_id=d.department_id group by d.department_name having count(e.employee_id) >1;
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+12.QUESTION: Display departments where the highest salary is greater than ₹50,000.
+select d.department_name,max(e.salary) as max_salary from employees e inner join departments d on e.department_id=d.department_id group by d.department_name having max(e.salary)>50000;
