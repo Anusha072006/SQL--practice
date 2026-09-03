@@ -1,0 +1,27 @@
+select e.* from employees e 
+left join departments d 
+on e.department_id=d.department_id;
+----------------------------------------------------------------------------------------------------------------------
+select e.employee_id,e.name,d.department_name from employees e 
+left join departments d 
+on e.department_id=d.department_id;
+---------------------------------------------------------------------------------------------------------------------------
+
+select e.name,e.salary,d.department_name from employees e 
+left join departments d 
+on e.department_id=d.department_id;
+--------------------------------------------------------------------------------------------------------------------------------
+select e. * from employees e
+left join departments d 
+on e.department_id=d.department_id where d.department_name='IT';
+---------------------------------------------------------------------------------------------------------------------------------
+
+select e.* from employees e 
+left join departments d 
+on e.department_id=d.department_id where salary >40000;
+-------------------------------------------------------------------------------------------------------------------------------------------
+select d.department_name from employees e 
+left join departments d 
+on e.department_id=d.department order by salary DESC;
+
+
