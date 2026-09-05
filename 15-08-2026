@@ -1,0 +1,65 @@
+1.QUESTION: Display all employee names and add the names Anu, Ravi from another SELECT using UNION.
+select name from employees
+UNION select 'Anu'
+UNION  select 'Ravi';
+----------------------------------------------------------------------------------------------------------------
+2.QUESTION: Display employees with salary greater than 45000 and employees with salary less than 40000 using UNION.
+select  salary  from employees where salary>45000
+UNION 
+select  salary from employees where salary <40000;
+-----------------------------------------------------------------------------------------------------------------------------
+3. QUESTION: Display employee names from department 1 and department 2 using UNION.
+select name from employees where department_id=1
+UNION 
+select  name  from employees where department_id=2;
+-----------------------------------------------------------------------------------------------------------------------------------
+4.QUESTION: Display employee IDs of employees earning more than 40000 and employees earning less than 40000 using UNION.
+select employee_id from employees where salary >40000
+UNION 
+select employee_id from employees where salary <40000;
+--------------------------------------------------------------------------------------------------------------------------------------------
+5.QUESTION: Display employee names from department 1 and employees whose salary is greater than 45000 using UNION.
+select name from employees where department_id=1
+UNION 
+select name from employees where salary>45000;
+------------------------------------------------------------------------------------------------------------------------------
+6.QUESTION: Display employee names from department 1 and department 2 using UNION ALL.
+select name from employees where department_id=1
+UNION ALL 
+select name from employees where department_id=2;
+-----------------------------------------------------------------------------------------------------------------------------------------
+7.QUESTION: Display employee names earning more than 40000 and employees from department 2 using UNION ALL.
+select name from employees where salary>40000 
+UNION ALL 
+select name from employees where department_id=2;
+----------------------------------------------------------------------------------------------------------------------------------------------
+8.QUESTION: Display department IDs from all employees and then display department IDs 1, 2, 3 using UNION ALL.
+select department_id from employees 
+UNION ALL 
+select department_id  from employees where department_id in (1,2,3);
+----------------------------------------------------------------------------------------------------------------------------------------------------
+9.QUESTION: Display employee names from department 1 or employees earning more than 45000, using UNION.
+select name from employees where department_id=1
+UNION 
+select name from employees where salary>45000;
+-----------------------------------------------------------------------------------------------------------------------------------------
+10.QUESTION: Display all employee names from department 2 and all employees earning more than 40000, using UNION ALL.
+select name from employees where department_id=2
+UNION ALL 
+select name from employees where  salary>40000;
+------------------------------------------------------------------------------------------------------------------------------------------------------
+11.QUESTION: Combine two employee lists using UNION and sort the final result A–Z.
+select name from employees 
+UNION  
+select name  from employees order by name ASC ;
+----------------------------------------------------------------------------------------------------------------------------------------
+
+12.QUESTION: Combine two employee lists using UNION ALL and sort the final result by name A–Z.
+select name from employees where department_id=1 
+UNION ALL 
+select name from employees  where department_id=2 order by name ASC;
+--------------------------------------------------------------------------------------------------------------------------------------------------
+13.QUESTION: Use UNION to combine two result sets and display only unique employee IDs.
+select employee_id from employees where salary>40000
+UNION  
+select employee_id from employees where department_id=2;
