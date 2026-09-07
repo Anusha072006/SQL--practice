@@ -1,0 +1,59 @@
+create database emp;
+use emp;
+drop table employees;
+create table employees(
+emp_id int,
+name varchar(50),
+department_id int,
+salary decimal(10,2)
+);
+insert into employees values
+(101,'Anu',1,50000),
+(102,'Ravi',2,40000),
+(103,'Sita',1,60000),
+(104,'Arun',3,350000),
+(105,'Priya',2,45000);
+select * from employees;
+
+select * from employees
+ where salary >(
+select  avg(salary)  from employees
+);
+select * from employees where salary=(
+select max(salary) from employees
+);
+
+select * from employees where salary=(
+select min(salary) from employees);
+
+select* from employees where salary=(
+select max(salary) from employees);
+
+select * from employees where salary>(
+select salary  from employees where name='Ravi');
+
+select * from employees where department_id in (
+select department_id from employees where name='Anu'
+);
+
+select * from employees where department_id in(
+select department_id  from employees where salary>45000);
+
+select * from employees where department_id in(
+select department_id from employees where name='Sita');
+
+select * from employees where  salary> (
+select salary  from employees);
+
+select * from employees where salary<(
+select salary from employees);
+
+select * from employees where salary>(
+select max(salary) from employees);
+
+select * from employees where salary<(
+select min(salary) from employees);
+
+select * from employees where salary=(
+select max(salary) from employees 
+
