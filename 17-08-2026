@@ -1,0 +1,55 @@
+1.QUESTION: Display employees earning more than the average salary.
+select * from employees where salary>(
+select avg(salary) from employees);
+-----------------------------------------------------------------------------------------------------
+2.QUESTION: Display employees earning less than the average salary.
+select * from employees where salary <(
+select avg(salary) from employees);
+------------------------------------------------------------------------------------------------------------------
+3.QUESTION: Display employees earning the maximum salary.
+select * from employees where salary =(
+select max(salary) from employees);
+---------------------------------------------------------------------------------------------------------------------
+4.QUESTION: Display employees earning the minimum salary.
+select * from employees where salary=(
+select min(salary)from employees);
+------------------------------------------------------------------------------------------------------------------------
+5.QUESTION: Find the second-highest salary using a subquery.
+select * from employees where salary=(
+select max(salary) from employees where salary<(
+select max(salary) from employees));
+-------------------------------------------------------------------------------------------------------
+6.QUESTION: Find the second-lowest salary using a subquery.
+select * from employees where salary=(
+select min(salary) from employees where salary>(
+select min(salary) from employees where salary));
+---------------------------------------------------------------------------------------------------------------------
+7.QUESTION: Display employees whose salary is greater than Ravi's salary but less than Sita's salary.
+select * from employees where salary>(
+select salary  from employees where name='Ravi')
+and salary<(
+select salary from employees where name='Sita');
+--------------------------------------------------------------------------------------------------------------------------
+8.QUESTION: Find the department ID of the employee with the highest salary.
+select department_id from employees where salary=(
+select max(salary) from employees);
+--------------------------------------------------------------------------------------------------------------------------------------
+9.QUESTION: Display employees who earn more than the salary of all employees in department 3.
+select * from employees where salary>(
+select max(salary) from employees where department_id=3);
+------------------------------------------------------------------------------------------------------------------------------------------------
+10.QUESTION: Display employees who earn more than any employee in department 2.
+select * from employees where salary<(
+select min(salary) from  employees where department_id=2);
+------------------------------------------------------------------------------------------------------------------------------------------
+11.QUESTION: Find the employee(s) whose salary is equal to the average salary of department 1.
+select * from employees where salary =(
+select avg(salary) from employees where department_id=1);
+----------------------------------------------------------------------------------------------------------------------------------------
+12.QUESTION: Find the employee with the third-highest salary using subqueries.
+select* from employees where salary=(
+select max(salary) from employees  
+where  salary<(
+select max(salary)from employees
+where salary<(
+select max(salary) from employees)));
