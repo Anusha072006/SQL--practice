@@ -1,0 +1,22 @@
+1.QUESTION: Which of the following attributes are used to specify an image source in HTML?
+ans:src
+--------------------------------------------------------------------------------------------
+2.QUESTION: Which of the following HTML tags are used to create a table?
+<table>
+<tr>
+<td>
+<th>
+-----------------------------------------------------------------------------------------------------
+3.QUESTION: Which of the following HTML tags are used to emphasize or highlight text?
+<strong>
+<em>
+-----------------------------------------------------------------------------------------------------------
+4.QUESTION: Which of the following attributes are used to specify a CSS class for an HTML element?
+Class
+----------------------------------------------------------------------------------------------------------
+5.QUESTION: Which attribute is used to provide a unique name to an HTML element?
+ID
+---------------------------------------------------------------------------------------------------------------
+6.QUESTION: Apart from < i > tag, which of the following tag is used to render a text in italics?
+<em>
+---------------------------------------------------------------------------------------------------------
