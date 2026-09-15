@@ -1,0 +1,32 @@
+create database employees;
+use employees;
+drop table employees;
+create table employees(
+emp_id int primary key,
+name varchar(20),
+age int,
+department varchar(20),
+salary decimal(10,2)
+);
+insert into employees (emp_id,name,age,department,salary) values
+(1,'anusha',21,'CSE',15000),
+(2,'bhavya',22,'ECE',20000),
+(3,'keerthi',23,'IT',40000),
+(4,'sravani',24,'EEE',50000);
+select* from employees;
+select name,salary from employees;
+select* from employees where department='IT';
+select * from employees where salary>40000;
+update employees set salary=50000 where emp_id=1; 
+update employees set department ='HR' where emp_id=1;
+update employees set salary=50000 where emp_id=1;
+update employees set salary=15000 where emp_id=2;
+update employees set salary=50000 where emp_id=101;
+select* from employees where emp_id=101;
+update employees set department='Hr'where name='rahul';
+update employees set age =21 where emp_id=105;
+select * from employees where emp_id=105;
+update employees set department='sales' where salary=50000;
+select * from employees where salary=50000;
+update employees set salary=salary + 5000 where department='IT';
+select* from employees where department='IT';
