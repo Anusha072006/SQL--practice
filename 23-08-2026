@@ -1,0 +1,111 @@
+
+create database student;
+use student; 
+
+create table employees (
+employee_id int,
+name varchar(300),
+department_id int,
+salary decimal(10,2)
+);
+
+insert into employees values
+(101,'Anu',1,50000),
+(102,'Ravi',2,40000),
+(103,'Sita',1,60000),
+(104,'Arun',3,35000),
+(105,'Priya',2,45000);
+select * from employees;
+
+
+
+
+1.QUESTION:Display employee name and salary. Use CASE to show:
+Salary >= 50000 → 'High'
+Salary < 50000 → 'Low'
+
+select name,salary,
+case
+when salary>=50000 then'High'
+when salary <50000 then 'Low'
+end as temperature 
+from employees;
+-------------------------------------------------------------------------------------------------------------
+
+2.QUESTION: Display employee name and salary category:
+Salary >= 60000 → 'Excellent'
+Salary >= 50000 → 'Good'
+Otherwise → 'Average'
+
+select name,salary,
+case
+when salary>=60000 then 'Excellent'
+when salary>=50000 then 'Good'
+else 'Average'
+ end as category
+from employees;
+---------------------------------------------------------------------------------------------------------------------------------
+3.QUESTION: Display employee name and a department category:
+Department 1 → 'IT'
+Department 2 → 'HR'
+Department 3 → 'Sales'
+
+select name,department_id ,
+case 
+when department_id=1 then'IT'
+when department_id=2 then 'HR'
+when department_id=3  then'Sales'
+end as  category
+from employees;
+--------------------------------------------------------------------------------------------------------------------------------------
+4.QUESTION: Display employee name and salary status:
+Salary >= 45000 → 'Eligible'
+Otherwise → 'Not Eligible'
+select name,salary,
+case 
+when salary>=45000 then 'Eligible'
+else 'Not Eligible'
+end as salarystatus
+from employees;
+-------------------------------------------------------------------------------------------------------------------------------------------------
+5.QUESTION: Display employee name and salary. Categorize:
+Salary >= 55000 → 'Very High'
+Salary >= 40000 → 'Medium'
+Otherwise → 'Low'
+select name,salary,
+case 
+when salary>=55000 then'Very High'
+when salary>=40000 then 'Medium'
+else 'Low'
+end as categorize
+from employees;
+--------------------------------------------------------------------------------------------------------------------------------
+6.QUESTION: Display employee name, salary, and salary category using CASE.
+select name,salary,
+case
+when name then'Anu'
+when salary then salary 
+end as salarycategory
+from employees;
+---------------------------------------------------------------------------------------------------------------
+7.QUESTION: Display employee name and:
+Salary >= 50000 → 'Above 50K'
+Salary < 50000 → 'Below 50K'
+select name,
+case 
+when salary>=50000 then'Above 50k'
+when salary<50000 then 'Below 50k'
+end as category
+from employees;
+------------------------------------------------------------------------------------------------------------------
+8.QUESTION: Display employee name and calculate final_salary:
+Salary >= 50000 → salary + 5000
+Otherwise → salary + 2000
+
+
+select name,
+case 
+when salary>=50000 then salary+5000
+else salary +2000
+end as final_salary
+from employees;
