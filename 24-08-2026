@@ -1,0 +1,52 @@
+1.QUESTION: Display name, salary, and ROW_NUMBER() based on salary ascending.
+select name,salary,
+row_number()over (order by salary asc) as total_salary
+from employees;
+------------------------------------------------------------------------------------------------------
+2.QUESTION: Display name, salary, and ROW_NUMBER() based on salary descending.
+select name,salary,
+row_number() over(order by salary desc) as total_salary
+from employees;
+-------------------------------------------------------------------------------------------------------------------
+3.QUESTION: Display employee_id, name, and ROW_NUMBER() based on employee_id ascending.
+select employee_id,name,
+row_number() over (order by employee_id asc) as employee_id 
+from employees;
+----------------------------------------------------------------------------------------------------------------------
+4.QUESTION: Display name, salary, and ROW_NUMBER() based on highest salary first.
+select name,salary,
+row_number() over(order by salary desc) as highest_salary 
+from employees;
+--------------------------------------------------------------------------------------------------------------------------
+5.QUESTION: Display name, department_id, salary, and ROW_NUMBER() based on department_id ascending.
+select name,department_id,salary,
+row_number() over(order by department_id  asc)as department
+from employees;
+--------------------------------------------------------------------------------------------------------------------------------
+6.QUESTION: Display name, salary, and ROW_NUMBER():
+select name,salary,
+row_number() over(order by salary desc, employee_id asc) as row_num
+from employees; 
+-----------------------------------------------------------------------------------------------------------------------
+7.QUESTION: employee_id | name | department_id | salary | row_num
+select employee_id,name,department_id,salary,
+row_number() over(order by salary asc) as row_num
+from employees;
+---------------------------------------------------------------------------------------------------------
+8.QUESTION: Display all employees with a row number based on salary highest to lowest, and give the row number column the alias salary_position.
+select *,
+row_number() over(order by salary desc) as salary_position
+from employees;
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+9.QUESTION: Display employee_id, name, and ROW_NUMBER() based on employee_id descending.
+select employee_id,name,
+row_number() over(order by employee_id asc)as employee_id 
+from employees;
+------------------------------------------------------------------------------------------------------------------------------------------
+10. QUESTION: Display name, department_id, and ROW_NUMBER() based on department_id ascending.
+select employee_id,name,
+row_number() over(order by employee_id desc)as employee_id 
+from employees;
+
+
+
