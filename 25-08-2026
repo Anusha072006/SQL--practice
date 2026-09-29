@@ -1,0 +1,76 @@
+Q1. Display name, salary, and row number based on salary ascending, and name alphabetically when salaries are equal.
+select name,salary,
+row_number() over(order by salary asc,name asc) as salaries 
+from employees;
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Q2. Display name, salary, and row number based on salary descending, and employee_id ascending when salaries are equal.
+select  name,salary,
+row_number() over(order by salary desc,name desc)as total_salary
+from employees;
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Q3. Display all employee columns and add a row_num column using ROW_NUMBER() based on name alphabetically.
+select *,
+row_number() over(order by name asc) as row_num
+from employees;
+---------------------------------------------------------------------------------------------------------------------------------
+Q4. Display name, salary, and row number based on salary DESC and name ASC.
+select  name,salary,
+row_number() over(order by salary desc,name desc)as total_salary
+from employees;
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Q5. Display name, department_id, salary, and row number based on department_id ASC and salary DESC.
+select name,department_id,salary,
+row_number() over(order by department_id asc,salary asc) as employee_id
+from employees;
+---------------------------------------------------------------------------------------------------------------------------------------------
+Q6. Display employees with a row number based on the lowest employee ID first.
+select*,
+row_number() over(order by  employee_id desc)as first
+from employees;
+------------------------------------------------------------------------------------------------------------------------------------
+Q7. Display employees with a row number based on the highest employee ID first.
+select*,
+row_number() over(order by  employee_id asc)as first
+from employees;
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Q8. Display name, salary, and ROW_NUMBER() based on salary ascending. Name the row-number column salary_row.
+select name,salary,
+row_number() over(order by salary asc) as salary_row
+from employees;
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Q9. Display name, salary, and ROW_NUMBER() based on salary descending. Name the row-number column salary_position.
+select name,salary,
+row_number() over(order by salary desc) as salary_position
+from employees;
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q10. Display employee_id, name, salary, and ROW_NUMBER() based on salary DESC, then employee_id ASC.
+select employee_id,name,salary ,
+row_number() over(order by salary desc ,employee_id asc) as employee_id
+from employees;
+-----------------------------------------------------------------------------------------------------------------------------------------
+Q11. Display Number employees from 1 to 5, with the highest salary getting number 1.
+select name,salary,
+ row_number() over(order by salary desc) as row_num
+ from employees;
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q12. Display  Assign row numbers based on department_id ASC, salary DESC.
+ select *,
+ row_number() over(order by department_id asc,salary desc) as row_num
+ from employees;
+ ------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q13. Display all employees and assign row numbers based on:
+  select *,
+ row_number() over(order by salary desc,employee_id asc) as row_num
+ from employees;
+ -------------------------------------------------------------------------------------------------
+ Q14. Use ROW_NUMBER() to display employees ordered by name from A to Z.
+ select *,
+ row_number() over(order by name asc) as row_num
+ from employees;
+ ---------------------------------------------------------------------------------------------------------------------------------
+ Q15. Use ROW_NUMBER() to display employees ordered by salary from lowest to highest, with the alias employee_rank.
+ select *,
+ row_number() over(order by salary asc) as employee_rank
+ from employees;
+ 
