@@ -1,0 +1,33 @@
+Q1. Display name, salary, and RANK() based on salary ascending.
+select name,salary,
+rank() over( order by salary asc) as rn
+from employees;
+--------------------------------------------------------------------------------------------------------------------------------
+Q2. Display name, salary, and RANK() based on salary descending.
+select name,salary,
+rank() over(order by salary desc)as rn
+from employees;
+-----------------------------------------------------------------------------------------------------------------------------------
+Q3. Display employee_id, name, and RANK() based on employee_id ascending.
+select employee_id,name,
+rank()over(order by employee_id asc)as rnk from employees;
+-----------------------------------------------------------------------------------------------------------------------------------
+Q4. Display name, salary, and RANK() based on the highest salary first.
+select name,salary,
+rank() over(order by salary desc)as rnk from employees;
+--------------------------------------------------------------------------------------------------------------------------------------
+Q5. Display name, salary, and RANK() based on salary descending, using the alias salary_rank.
+select name,salary,
+rank() over(order by salary desc)as salary_rank from employees;
+---------------------------------------------------------------------------------------------------------------------------------------------
+Q6. Display name, department_id, salary, and RANK() based on salary descending.
+select name,department_id,salary,
+rank() over(order by salary desc)as rn from employees; 
+------------------------------------------------------------------------------------------------------------------------------------------------
+Q7. Display name, salary, and RANK() based on salary ascending, and name ascending when salaries are equal.
+select name,salary,
+rank()over(order by salary asc,name asc) as rnk_sal from employees;
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Q8. Display employee_id, name, salary, and RANK() based on salary descending and employee_id ascending.
+select employee_id,name,salary,
+rank()over(order by salary desc,employee_id asc) as rn from employees;
