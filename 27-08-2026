@@ -1,0 +1,32 @@
+Q1. Display name, salary, and DENSE_RANK() based on salary descending.
+select name,salary,
+dense_rank() over(order by salary desc) as rn from employees;
+-------------------------------------------------------------------------------------------------------------------------------------------
+Q2. Display name, salary, and DENSE_RANK() based on salary ascending.
+select name,salary,
+dense_rank() over(order by salary asc) as rn from employees;
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Q3. Display employee_id, name, and DENSE_RANK() based on employee_id descending.
+select employee_id,name,
+dense_rank() over(order by employee_id desc) as rn  from employees;
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Q4. Display all employees and add a salary_rank column using DENSE_RANK() based on the highest salary first.
+select *,
+dense_rank() over(order by salary desc)as salary_rank from employees;
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Q5. Display name, department_id, salary, and DENSE_RANK() based on salary descending.
+select name,department_id,salary,
+dense_rank()over(order by salary desc)as denserank from employees;
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q6. Display name, salary, and DENSE_RANK() based on salary descending, with the rank column named dense_rank.
+select *,
+dense_rank()over(order by salary asc)as rank_position from employees;
+-----------------------------------------------------------------------------------------------------------------------------------
+
+Q7. Rank employees based on salary ascending and name the rank column salary_position.
+select employee_id,name,salary,
+dense_rank() over(order by salary desc,employee_id asc) as rn from employees;
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Q8. Display employee_id, name, salary, and DENSE_RANK() based on salary DESC and employee_id ASC.
+select employee_id,
+dense_rank()over(order by salary asc)as rn from employees;
