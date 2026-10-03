@@ -1,0 +1,27 @@
+Q9. Find the dense rank of every employee based on salary, with the highest salary getting rank 1.
+select employee_id,name,salary,
+dense_rank()over(order by salary desc)as denserank from employees;
+-------------------------------------------------------------------------------------------------------------------
+Q10. Display employees with the same salary receiving the same dense rank.
+select salary,
+dense_rank()over(order by salary asc ) as rn from employees;
+--------------------------------------------------------------------------------------------------------------------------------
+Q11. Display all employee details and add a salary_dense_rank column.
+select *,
+dense_rank() over(order by salary desc)as salary_dense_rank from employees;
+-------------------------------------------------------------------------------------------------------------------------
+Q12. Rank employees based on employee_id from lowest to highest using DENSE_RANK().
+select employee_id,
+dense_rank()over(order by employee_id asc) as employee_id from employees;
+-------------------------------------------------------------------------------------------------------------------------------
+Q13. Display: name | salary | dense_rank Rank employees by salary from highest to lowest.
+select name,salary,
+dense_rank() over(order by salary desc) as denserank from employees;
+---------------------------------------------------------------------------------------------------------------------------------------
+Q14. Display:employee_id | name | department_id | salary | dense_rank Rank employees based on salary descending.
+select employee_id,name,department_id,salary,
+dense_rank() over(order by salary desc) as denserank from employees;
+----------------------------------------------------------------------------------------------------------------------------------------
+Q15. Using DENSE_RANK(), find the second-highest distinct salary.
+select salary from (
+select salary,dense_rank() over(order by salary desc) as salary_rank from employees)as ranked where salary_rank=2;
