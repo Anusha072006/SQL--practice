@@ -1,0 +1,33 @@
+Q1. Display each employee's name, department, salary, and ROW_NUMBER() within each department.
+select name,department_id,salary, 
+row_number() over(partition by department_id order by salary desc )as row_num from employees;
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q2. Give the highest-paid employee in each department row_number = 1.
+select * from(
+select *,row_number()over(partition by department_id order by salary desc) as row_num  from employees 
+)as ranked
+where row_num=1;
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Q3. Display employees with RANK() based on salary within each department.
+ select *,
+ rank() over(partition by department_id order by salary desc)as rn from employees;
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q4. Display employees with DENSE_RANK() based on salary within each department.
+select *,
+ dense_rank() over(partition by department_id order by salary desc)as rn from employees;
+ ---------------------------------------------------------------------------------------------------------------------------------------------------------
+Q5. Display:
+name
+department_id
+salary
+salary_rank
+Use RANK() and PARTITION BY department_id.
+ select name,department_id,salary,
+ rank() over(partition by department_id )as salary_rank from employees;
+ --------------------------------------------------------------------------------------------------------------------------
+Q6. Find the highest-paid employee in each department using ROW_NUMBER() and PARTITION BY.
+ select *,
+ row_number() over(partition by department_id order by salary desc) as row_num from employees;
+
+
+ 
