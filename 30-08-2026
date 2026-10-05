@@ -1,0 +1,72 @@
+Q9. Find the second-highest-paid employee from each department.
+select *
+from(
+select * ,row_number() over(partition by department_id order by salary desc
+) as row_num
+from employees
+) as ranked
+where row_num=2;
+----------------------------------------------------------------------------------------------------------------
+Q10. Find the lowest-paid employee from each department.
+SELECT *
+FROM (
+    SELECT *,
+           ROW_NUMBER() OVER (
+               PARTITION BY department_id
+               ORDER BY salary ASC
+           ) AS row_num
+    FROM employees
+) AS ranked
+WHERE row_num = 1;
+---------------------------------------------------------------------------------------------------------------------------------------
+Q11. Display only employees whose ROW_NUMBER() is 1 within their department.
+select * from(
+select *,
+row_number() over(partition by department_id order by salary desc) as row_num  from employees
+) as ranked 
+where row_num=1;
+-----------------------------------------------------------------------------------------------------------------
+Q12. Display only employees whose RANK() is 1 within their department.
+select * from(
+select *,
+rank() over(partition by department_id order by salary desc) as row_num  from employees
+) as ranked 
+where row_num=1;
+----------------------------------------------------------------------------------------------------------------------------
+Q13. Display only employees whose DENSE_RANK() is 2 within their department.
+select * 
+from(
+select *,
+dense_rank() over(partition by department_id order by salary desc) as row_num  from employees
+) as ranked 
+where row_num=2;
+---------------------------------------------------------------------------------------------------------------------------
+Q14. Give each employee a rank based on salary within their department and sort the final result by department and rank.
+select name,department_id,salary,
+rank() over(partition by department_id order by salary  desc) as row_num from employees
+order by department_id,rank_num;
+Q15. Display: name | department_id | salary | row_num | rank_num | dense_rank_num
+using all three:
+ROW_NUMBER()
+RANK()
+DENSE_RANK()
+
+
+SELECT name, department_id, salary,
+
+ROW_NUMBER() OVER (
+    PARTITION BY department_id
+    ORDER BY salary DESC
+) AS row_num,
+
+RANK() OVER (
+    PARTITION BY department_id
+    ORDER BY salary DESC
+) AS rank_num,
+
+DENSE_RANK() OVER (
+    PARTITION BY department_id
+    ORDER BY salary DESC
+) AS dense_rank_num
+
+FROM employees;
