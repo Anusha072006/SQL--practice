@@ -1,0 +1,61 @@
+create database employees;
+ use  employees;
+ drop  table employees;
+ create table employees(
+   emp_id int primary key,
+   name varchar(40),
+   age int,
+   department varchar(30),
+   salary decimal(10,2)
+   );
+   insert into employees values
+   (1,'Anusha',21,'CSE',12000),
+   (2,'Karthik',20,'ECE',20000),
+   (3,'Gopi',25,'EEE',23000),
+   (4,'Tharkesh',15,'AI&ML',40000),
+   (5,'Suma',8,'DS',48000);
+
+   select * from employees;
+   select name from employees;
+   select name,salary from employees;
+   select * from employees where age>25;
+   select * from employees where salary>30000;
+   select * from employees where department="IT";
+   select * from employees where age between 22 and 30;
+   select * from employees where salary<50000;
+   select name from employees order by name ASC; 
+   select name from employees order by name DESC;
+   select * from employees where age>25;
+   select * from employees where age<30;
+   select * from employees where age=22;
+   select * from employees where salary>40000;
+   select * from employees where salary<30000;
+   select * from employees where department='Sales';
+   select * from employees where age>25 and salary>40000;
+   
+   select * from employees order by name asc;
+   select * from employees order by age  desc;
+   select * from employees order by age asc;
+   select * from employees order by salary asc;
+   select * from employees order by department desc;
+   
+   
+   
+select * from employees where age=25;
+select * from employees where age>30;
+select * from employees where salary<40000;
+select * from employees where salary>=50000;
+select * from employees where age<=28;
+select * from employees where department='IT';
+select * from employees where salary!=35000;
+
+select * from employees where age< 25 and salary>40000;
+select * from employees;
+select first name,dep_id from employees where department=90;
+select* from employees order by salary desc limit 5;
+select * from employees order by salary asc;
+select first_name,last_name, salary as monthly_salary from employees;
+select * from employees order by salary desc limit 3;
+select * from employees  where department =60 order by salary desc;   
+select * from employees  where salary>7000 order by hire_date;
+   
