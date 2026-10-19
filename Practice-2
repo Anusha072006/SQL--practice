@@ -1,0 +1,98 @@
+select name,department_id,salary, 
+row_number() over(partition by department_id order by salary desc )as row_num from employees;
+
+
+select * from(
+select *,row_number()over(partition by department_id order by salary desc) as row_num  from employees 
+)as ranked
+where row_num=1;
+ 
+ 
+ select *,
+ rank() over(partition by department_id order by salary desc)as rn from employees;
+ 
+ 
+  select *,
+ dense_rank() over(partition by department_id order by salary desc)as rn from employees;
+ 
+ select name,department_id,salary,
+ rank() over(partition by department_id )as salary_rank from employees;
+ 
+ 
+ select *,
+ row_number() over(partition by department_id order by salary desc) as row_num from employees;
+ 
+ ---------------------------------------------
+
+ select *,
+ row_number() over(partition by department_id order by salary desc)as row_num from employees;
+
+
+select *
+from(
+select * ,row_number() over(partition by department_id order by salary desc
+) as row_num
+from employees
+) as ranked
+where row_num=2;
+
+
+
+SELECT *
+FROM (
+    SELECT *,
+           ROW_NUMBER() OVER (
+               PARTITION BY department_id
+               ORDER BY salary ASC
+           ) AS row_num
+    FROM employees
+) AS ranked
+WHERE row_num = 1;
+
+
+select * from(
+select *,
+row_number() over(partition by department_id order by salary desc) as row_num  from employees
+) as ranked 
+where row_num=1;
+
+
+select * from(
+select *,
+rank() over(partition by department_id order by salary desc) as row_num  from employees
+) as ranked 
+where row_num=1;
+
+
+
+
+select * 
+from(
+select *,
+dense_rank() over(partition by department_id order by salary desc) as row_num  from employees
+) as ranked 
+where row_num=2;
+
+
+select name,department_id,salary,
+rank() over(partition by department_id order by salary  desc) as row_num from employees
+order by department_id,rank_num;
+
+SELECT name, department_id, salary,
+
+ROW_NUMBER() OVER (
+    PARTITION BY department_id
+    ORDER BY salary DESC
+) AS row_num,
+
+RANK() OVER (
+    PARTITION BY department_id
+    ORDER BY salary DESC
+) AS rank_num,
+
+DENSE_RANK() OVER (
+    PARTITION BY department_id
+    ORDER BY salary DESC
+) AS dense_rank_num
+
+FROM employees;
