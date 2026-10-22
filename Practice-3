@@ -1,0 +1,42 @@
+create database college;
+USE college;
+CREATE TABLE student(
+student_id INT PRIMARY KEY,
+name VARCHAR(60)
+);
+
+INSERT INTO student
+(student_id, name)
+VALUES 
+(1001,"anusha"),
+(1002,"gopi"),
+(1003,"suma");
+
+CREATE TABLE course(
+student_id INT PRIMARY KEY,
+course VARCHAR(60)
+);
+INSERT INTO course
+(student_id,course)
+VALUES
+(1002,"english"),
+(1005,"math"),
+(1003,"science"),
+(1007,"computer");
+SELECT *from student;
+SELECT * from course;
+SELECT * 
+from student as a
+left JOIN course as c
+on a.student_id=c.student_id
+UNION 
+SELECT * 
+from student as a
+RIGHT JOIN course as c
+on a.student_id=c.student_id;
+
+SELECT student_id FROM student
+UNION all
+SELECT student_id FROM student; 
+
+
