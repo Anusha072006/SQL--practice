@@ -1,0 +1,475 @@
+create database student;
+use student; 
+
+create table employees (
+employee_id int,
+name varchar(300),
+department_id int,
+salary decimal(10,2)
+);
+
+insert into employees values
+(101,'Anu',1,50000),
+(102,'Ravi',2,40000),
+(103,'Sita',1,60000),
+(104,'Arun',3,35000),
+(105,'Priya',2,45000);
+select * from employees;
+drop table employees;
+select name,salary,
+case
+when salary>=50000 then'High'
+when salary <50000 then 'Low'
+end as temperature 
+from employees;
+
+
+select name,salary,
+case
+when salary>=60000 then 'Excellent'
+when salary>=50000 then 'Good'
+else 'Average'
+ end as category
+from employees;
+
+
+select name,department_id ,
+case 
+when department_id=1 then'IT'
+when department_id=2 then 'HR'
+when department_id=3  then'Sales'
+end as  category
+from employees;
+
+
+select name,salary,
+case 
+when salary>=45000 then 'Eligible'
+else 'Not Eligible'
+end as salarystatus
+from employees;
+
+  
+  
+select name,salary,
+case 
+when salary>=55000 then'Very High'
+when salary>=40000 then 'Medium'
+else 'Low'
+end as categorize
+from employees;
+
+select name,salary,
+case
+when name then'Anu'
+when salary then salary 
+end as salarycategory
+from employees;
+
+
+
+select name,
+case 
+when salary>=50000 then'Above 50k'
+when salary<50000 then 'Below 50k'
+end as category
+from employees;
+
+
+
+select name,
+case 
+when salary>=50000 then salary+5000
+else salary +2000
+end as final_salary
+from employees;
+
+
+
+
+select name,salary,
+case 
+when salary>=50000 and department_id=1 then 'IT High'
+when salary>=40000 and department_id=2 then 'Hr Good'
+else 'others'
+end  as salarycategory 
+from employees;
+
+
+select name,
+case 
+when salary>=50000 or department_id=3 then 'Selected'
+else 'not selected'
+end as category
+from employees;
+
+select employee_id,name, department_id ,salary,
+case 
+when salary>=60000 then 1
+when salary>=50000 then 2
+else 3
+end as total_order
+
+from employees
+order by total_order;
+
+
+
+
+select name,salary,
+row_number()over (order by salary asc) as total_salary
+from employees;
+
+
+
+select name,salary,
+row_number() over(order by salary desc) as total_salary
+from employees;
+
+
+select employee_id,name,
+row_number() over (order by employee_id asc) as employee_id 
+from employees;
+
+
+select name,salary,
+row_number() over(order by salary desc) as highest_salary 
+from employees;
+
+
+select name,department_id,salary,
+row_number() over(order by department_id  asc)as department
+from employees;
+
+
+select name,salary,
+row_number() over(order by salary desc, employee_id asc) as row_num
+from employees; 
+
+select employee_id,name,department_id,salary,
+row_number() over(order by salary asc) as row_num
+from employees;
+
+
+select *,
+row_number() over(order by salary desc) as salary_position
+from employees;
+
+
+
+select employee_id,name,
+row_number() over(order by employee_id asc)as employee_id 
+from employees;
+
+
+select employee_id,name,
+row_number() over(order by employee_id desc)as employee_id 
+from employees;
+
+---------------
+select name,salary,
+row_number() over(order by salary asc,name asc) as salaries 
+from employees;
+
+
+select *,
+row_number() over(order by name asc) as row_num
+from employees;
+
+
+select  name,salary,
+row_number() over(order by salary desc,name desc)as total_salary
+from employees;
+
+select name,department_id,salary,
+row_number() over(order by department_id asc,salary asc) as employee_id
+from employees;
+
+---------
+select*,
+row_number() over(order by  employee_id desc)as first
+from employees;
+
+select*,
+row_number() over(order by  employee_id asc)as first
+from employees;
+
+
+select name,salary,
+row_number() over(order by salary asc) as salary_row
+from employees;
+
+
+select name,salary,
+row_number() over(order by salary desc) as salary_position
+from employees;
+
+
+
+select employee_id,name,salary ,
+row_number() over(order by salary desc ,employee_id asc) as employee_id
+from employees;
+
+
+ select name,salary,
+ row_number() over(order by salary desc) as row_num
+ from employees;
+ 
+ 
+ 
+ select *,
+ row_number() over(order by department_id asc,salary desc) as row_num
+ from employees;
+ 
+ select *,
+ row_number() over(order by salary desc,employee_id asc) as row_num
+ from employees;
+ 
+ 
+ select *,
+ row_number() over(order by name asc) as row_num
+ from employees;
+ 
+ 
+ select *,
+ row_number() over(order by salary asc) as employee_rank
+ from employees;
+ 
+ 
+ 
+ 
+ -- -----------Rank----------------------------------
+ 
+ 
+select name,salary,
+rank() over( order by salary asc) as rn
+from employees;
+
+
+
+select name,salary,
+rank() over(order by salary desc)as rn
+from employees;
+
+
+
+select employee_id,name,
+rank()over(order by employee_id asc)as rnk from employees;
+
+select name,salary,
+rank() over(order by salary desc)as rnk from employees;
+
+
+select name,salary,
+rank() over(order by salary desc)as salary_rank from employees;
+
+
+
+select name,department_id,salary,
+rank() over(order by salary desc)as rn from employees; 
+
+
+
+
+select name,salary,
+rank()over(order by salary asc,name asc) as rnk_sal from employees;
+
+
+select employee_id,name,salary,
+rank()over(order by salary desc,employee_id asc) as rn from employees;
+
+-- ------------------------------------------------------
+
+
+select employee_id,
+rank()over(order by salary desc)as rnk  from employees ;
+
+select *,
+rank() over(order by salary desc )as salary_rank 
+from employees;
+
+
+select *,
+rank() over(order by employee_id desc)as rn from employees;
+
+
+select *,
+rank()over(order by salary asc) as rank_no from employees;
+
+
+select name,salary,
+rank() over(order by salary desc)as salary_rank from employees;
+
+
+select employee_id,name,department_id,salary,
+rank()over(order by salary desc)as salary_rank from employees;
+
+
+select *,
+rank()over(order by salary desc)as rn from employees;
+
+
+-- -----------------------------------------
+select name,salary,
+dense_rank() over(order by salary desc) as rn from employees;
+
+
+select name,salary,
+dense_rank() over(order by salary asc) as rn from employees;
+
+
+
+select employee_id,name,
+dense_rank() over(order by employee_id desc) as rn  from employees;
+
+select *,
+dense_rank() over(order by salary desc)as salary_rank from employees;
+
+select name,department_id,salary,
+dense_rank()over(order by salary desc)as denserank from employees;
+
+select *,
+dense_rank()over(order by salary asc)as rank_position from employees;
+
+
+select employee_id,name,salary,
+dense_rank() over(order by salary desc,employee_id asc) as rn from employees;
+
+select employee_id,
+dense_rank()over(order by salary asc)as rn from employees;
+
+-- --------------------------------------------- 
+
+
+select employee_id,name,salary,
+dense_rank()over(order by salary desc)as denserank from employees;
+
+
+select salary,
+dense_rank()over(order by salary asc ) as rn from employees;
+
+
+select *,
+dense_rank() over(order by salary desc)as salary_dense_rank from employees;
+
+
+select employee_id,
+dense_rank()over(order by employee_id asc) as employee_id from employees;
+
+
+select name,salary,
+dense_rank() over(order by salary desc) as denserank from employees;
+
+
+select employee_id,name,department_id,salary,
+dense_rank() over(order by salary desc) as denserank from employees;
+
+
+select salary from (
+select salary,dense_rank() over(order by salary desc) as salary_rank from employees)as ranked where salary_rank=2;
+
+
+
+
+
+-- -----------------------------
+
+
+select name,department_id,salary, 
+row_number() over(partition by department_id order by salary desc )as row_num from employees;
+
+
+select * from(
+select *,row_number()over(partition by department_id order by salary desc) as row_num  from employees 
+)as ranked
+where row_num=1;
+ 
+ 
+ select *,
+ rank() over(partition by department_id order by salary desc)as rn from employees;
+ 
+ 
+  select *,
+ dense_rank() over(partition by department_id order by salary desc)as rn from employees;
+ 
+ select name,department_id,salary,
+ rank() over(partition by department_id )as salary_rank from employees;
+ 
+ 
+ select *,
+ row_number() over(partition by department_id order by salary desc) as row_num from employees;
+ 
+ ---------------------------------------------
+
+ select *,
+ row_number() over(partition by department_id order by salary desc)as row_num from employees;
+
+
+select *
+from(
+select * ,row_number() over(partition by department_id order by salary desc
+) as row_num
+from employees
+) as ranked
+where row_num=2;
+
+
+
+SELECT *
+FROM (
+    SELECT *,
+           ROW_NUMBER() OVER (
+               PARTITION BY department_id
+               ORDER BY salary ASC
+           ) AS row_num
+    FROM employees
+) AS ranked
+WHERE row_num = 1;
+
+
+select * from(
+select *,
+row_number() over(partition by department_id order by salary desc) as row_num  from employees
+) as ranked 
+where row_num=1;
+
+
+select * from(
+select *,
+rank() over(partition by department_id order by salary desc) as row_num  from employees
+) as ranked 
+where row_num=1;
+
+
+
+
+select * 
+from(
+select *,
+dense_rank() over(partition by department_id order by salary desc) as row_num  from employees
+) as ranked 
+where row_num=2;
+
+
+select name,department_id,salary,
+rank() over(partition by department_id order by salary  desc) as row_num from employees
+order by department_id,rank_num;
+
+SELECT name, department_id, salary,
+
+ROW_NUMBER() OVER (
+    PARTITION BY department_id
+    ORDER BY salary DESC
+) AS row_num,
+
+RANK() OVER (
+    PARTITION BY department_id
+    ORDER BY salary DESC
+) AS rank_num,
+
+DENSE_RANK() OVER (
+    PARTITION BY department_id
+    ORDER BY salary DESC
+) AS dense_rank_num
+
+FROM employees;
