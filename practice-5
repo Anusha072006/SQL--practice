@@ -1,0 +1,52 @@
+show databases;
+use student;
+DROP TABLE STU;
+CREATE TABLE stu (
+    roll_number INT PRIMARY KEY,
+    name VARCHAR(20),
+    address VARCHAR(20),
+    email VARCHAR(50)
+);
+insert into stu values(1,'anu','kash','mutu@gmail.com');
+insert into stu values(2,'nmj','erfd','kaghvgc@gmail.com');
+
+select * from stu;  
+
+# DDL Commnads
+create table mobile_details(
+mobile_number int primary key,
+mobile_name varchar(50),
+mobile_cost int
+);
+insert into mobile_details values(1,'vivoy28 5g',25000)
+select * from mobile_details;
+
+
+CREATE TABLE meals(
+sno_number int primary key,
+items varchar(50),
+quantity int,
+price_number int
+);
+insert into  meals values
+(1,'dosa',2,50),
+(2,'idli',3,30),
+(3,'vada',5,20);
+SELECT * FROM meals;
+show columns from employee;
+select MOD(sal,3)AS  emp; 
+
+
+
+select deptno,AVG(sal) as avg_salary from  emp GROUP BY deptno;
+Select ename, COUNT(*) AS count_name FROM emp GROUP BY ename HAVING COUNT(*) > 1;
+desc emp;
+select year (hiredate) AS hire_year, COUNT(*) AS  employee_count
+from emp 
+GROUP BY year (hiredate) 
+ORDER BY hire_year;
+
+select mgr, COUNT(*) AS no_of_employees FROM emp GROUP BY mgr;
+select job,avg (sal) AS avg_salary from emp GROUP BY job HAVING avg (sal) > 1500;
+select deptno from emp where comm IS NOT NULL GROUP BY deptno;
+select mgr,COUNT(*) AS no_of_employees FROM emp GROUP BY mgr HAVING COUNT(*) >2;
