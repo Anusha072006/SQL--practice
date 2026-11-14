@@ -1,0 +1,30 @@
+create table student (
+id_number INT,
+name VARCHAR(50),
+age int,
+department VARCHAR(50),
+marks INT
+);
+insert into student values
+(1,'anu',21,'cse',85),
+(2, 'Ravi',22, 'ECE',90),
+(3,  'Priya',20 ,'CSE',78),
+(4, 'kiran',23,'eee',88);
+select distinct * from student;
+select distinct name from student;
+select name,marks from student;
+select age from student;
+select id_number,name,department from student;
+
+select distinct * from student where age>21;
+select * from student where department='cse';
+select  *from student where marks>85;
+select  * from  student where age=21; 
+select * from student where department='ece';
+
+select * from student  order by name;
+
+select studentname,deptname
+from students s 
+inner join departments d
+on s.deptid=d.deptid;
